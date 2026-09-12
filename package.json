@@ -1,0 +1,14 @@
+{
+  "name": "iframe-login-test",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A local login page designed to verify iframe support in browser automation scripts.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

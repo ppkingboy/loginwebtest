@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="用于测试自动化脚本是否支持 iframe 和登录表单填写。"
+    />
+    <title>Iframe 登录测试</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="harness-page">
+    <header class="harness-bar">
+      <div class="harness-heading">
+        <p class="eyebrow">QWA Automation Target</p>
+        <h1>Iframe 登录测试</h1>
+      </div>
+      <dl class="harness-meta" aria-label="测试环境信息">
+        <div>
+          <dt>入口</dt>
+          <dd><code>/</code></dd>
+        </div>
+        <div>
+          <dt>Frame</dt>
+          <dd><code>#login-frame</code></dd>
+        </div>
+      </dl>
+    </header>
+
+    <main class="harness-stage">
+      <iframe
+        id="login-frame"
+        name="login-frame"
+        class="login-frame"
+        src="/login"
+        title="登录测试表单"
+      ></iframe>
+    </main>
+  </body>
+</html>

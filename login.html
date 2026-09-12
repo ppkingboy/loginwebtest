@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN" data-embedded="false">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>测试登录</title>
+    <script>
+      (() => {
+        let embedded = false;
+
+        try {
+          embedded = window.self !== window.top;
+        } catch {
+          embedded = true;
+        }
+
+        document.documentElement.dataset.embedded = String(embedded);
+        if (!embedded) {
+          window.location.replace("/");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/login.js" defer></script>
+  </head>
+  <body class="login-page">
+    <main class="login-shell">
+      <section class="login-panel" aria-labelledby="login-title">
+        <div class="login-heading">
+          <div class="brand-mark" aria-hidden="true">Q</div>
+          <p class="eyebrow">Automation Test</p>
+          <h1 id="login-title">测试登录</h1>
+          <p class="login-intro">
+            请通过外层页面访问本表单。脚本需要进入 iframe 才能识别下面的输入框。
+          </p>
+        </div>
+
+        <form id="login-form" class="login-form">
+          <fieldset id="credentials-fieldset" class="form-fields" disabled>
+            <div class="field">
+              <label for="username">用户名</label>
+              <input
+                id="username"
+                name="username"
+                data-testid="username"
+                type="text"
+                autocomplete="username"
+                placeholder="请输入用户名"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="password">密码</label>
+              <input
+                id="password"
+                name="password"
+                data-testid="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="请输入密码"
+                required
+              />
+            </div>
+
+            <button
+              id="login-button"
+              data-testid="login-button"
+              class="primary-button"
+              type="submit"
+            >
+              <span class="button-label">登录</span>
+            </button>
+          </fieldset>
+
+          <p
+            id="login-result"
+            class="login-result"
+            role="status"
+            aria-live="polite"
+            data-state="idle"
+          ></p>
+        </form>
+
+        <p class="test-note">测试环境接受任意非空用户名和密码。</p>
+      </section>
+
+      <section class="top-level-notice" aria-labelledby="notice-title">
+        <h1 id="notice-title">此页面需要在 iframe 中打开</h1>
+        <p>请访问测试入口，由外层页面加载登录表单。</p>
+        <a href="/">返回测试入口</a>
+      </section>
+    </main>
+
+    <noscript>
+      <p class="noscript-message">此测试页面需要启用 JavaScript。</p>
+    </noscript>
+  </body>
+</html>
